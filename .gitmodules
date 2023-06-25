@@ -1,3 +1,0 @@
-[submodule "nfc/nfc/SPI-Py"]
-	path = nfc/nfc/SPI-Py
-	url = https://github.com/lthiery/SPI-Py.git
