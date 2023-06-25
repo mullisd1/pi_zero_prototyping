@@ -32,7 +32,7 @@ def lookUpNearbyBluetoothDevices():
     if my_phone == str(bluetooth.lookup_name( bdaddr )):
       my_address = bdaddr
 
-      sendMessageTO(my_address)
+      sendMessageTo(my_address)
     
     
 lookUpNearbyBluetoothDevices()
