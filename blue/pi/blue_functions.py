@@ -24,9 +24,15 @@ def sendMessageTo(targetBluetoothMacAddress):
   sock.close()
   
 def lookUpNearbyBluetoothDevices():
+  my_phone = 'Pixel 6'
+  my_address = None
+
   nearby_devices = bluetooth.discover_devices()
   for bdaddr in nearby_devices:
-    print(str(bluetooth.lookup_name( bdaddr )) + " [" + str(bdaddr) + "]")
+    if my_phone == str(bluetooth.lookup_name( bdaddr )):
+      my_address = bdaddr
+
+      sendMessageTO(my_address)
     
     
 lookUpNearbyBluetoothDevices()
