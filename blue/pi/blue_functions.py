@@ -1,4 +1,5 @@
 import bluetooth
+from bluetooth import *
 
 def receiveMessages():
   server_sock=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
@@ -30,9 +31,21 @@ def lookUpNearbyBluetoothDevices():
   nearby_devices = bluetooth.discover_devices()
   for bdaddr in nearby_devices:
     if my_phone == str(bluetooth.lookup_name( bdaddr )):
+      print()
       my_address = bdaddr
 
       sendMessageTo(my_address)
     
     
-lookUpNearbyBluetoothDevices()
+my_phone = 'Pixel 6'
+my_address = None
+
+nearby_devices = bluetooth.discover_devices()
+for bdaddr in nearby_devices:
+  if my_phone == str(bluetooth.lookup_name( bdaddr )):
+    print(my_address)
+    my_address = bdaddr
+
+    port = [_ for _ in find_service(address=bt_addr) if 'RFCOMM' in _['protocol']][0]['port']
+    s = BluetoothSocket(RFCOMM)
+    s.connect((bt_addr, port))
