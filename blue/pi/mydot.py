@@ -4,6 +4,7 @@ from bluedot import BlueDot
 # print("You pressed the blue dot!")
 
 from bluedot.btcomm import BluetoothServer
+from signal import pause
 
 def data_received(data):
     print(data)
