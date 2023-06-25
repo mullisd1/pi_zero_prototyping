@@ -10,3 +10,4 @@ def data_received(data):
     s.send(data)
 
 s = BluetoothServer(data_received)
+pause()
