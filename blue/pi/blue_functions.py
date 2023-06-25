@@ -46,6 +46,6 @@ for bdaddr in nearby_devices:
     print(my_address)
     my_address = bdaddr
 
-    port = [_ for _ in find_service(address=bt_addr) if 'RFCOMM' in _['protocol']][0]['port']
+    port = [_ for _ in find_service(address=bdaddr) if 'RFCOMM' in _['protocol']][0]['port']
     s = BluetoothSocket(RFCOMM)
     s.connect((bt_addr, port))
